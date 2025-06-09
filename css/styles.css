@@ -10970,3 +10970,59 @@ section.resume-section .resume-section-content {
     padding-bottom: 5rem;
   }
 }
+# Generar un nuevo archivo styles.css con la nueva paleta de colores
+from pathlib import Path
+
+css_path = Path("/mnt/data/styles_unai_custom.css")
+
+custom_css = """
+:root {
+    --bs-primary: #1F3BB3;         /* Azul intenso */
+    --bs-secondary: #DB00FF;       /* Rosa fucsia */
+    --bs-dark: #0B0F29;            /* Fondo oscuro */
+    --bs-light: #C9D1E9;           /* Texto secundario */
+    --bs-body-color: #FFFFFF;      /* Texto principal */
+    --bs-navbar-color: #FFFFFF;
+    --bs-navbar-hover-color: #DB00FF;
+}
+
+body {
+    background-color: var(--bs-dark);
+    color: var(--bs-body-color);
+}
+
+a {
+    color: var(--bs-primary);
+}
+a:hover {
+    color: var(--bs-secondary);
+}
+
+.bg-primary {
+    background-color: var(--bs-primary) !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: var(--bs-navbar-color);
+}
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: var(--bs-navbar-hover-color);
+}
+
+h1, h2, h3, h4, h5 {
+    color: var(--bs-body-color);
+}
+
+.subheading {
+    color: var(--bs-light);
+}
+
+.resume-section-content {
+    border-bottom: 1px solid var(--bs-light);
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+"""
+
+css_path.write_text(custom_css)
+css_path.name
